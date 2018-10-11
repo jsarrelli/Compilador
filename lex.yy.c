@@ -772,7 +772,7 @@ return ESCRIBIR;
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 30 "lex_micro.l"
+#line 31 "lex_micro.l"
 {
                                     //Almacenamos el nombre del identificador reconocido para luego poder acceder al mismo desde YACC.
                                     //Si no se utiliza strdup() el puntero de yytext será copiado en yylval.identificador.
@@ -783,7 +783,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 37 "lex_micro.l"
+#line 38 "lex_micro.l"
 {
                                   printf("Constante: %s\n",yytext);
                                   return CONSTANTE;
@@ -791,7 +791,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 41 "lex_micro.l"
+#line 42 "lex_micro.l"
 {
                                   printf("Operador aditivo: %s\n",yytext);
                                   return OPERADOR_ADITIVO;
@@ -799,7 +799,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 45 "lex_micro.l"
+#line 46 "lex_micro.l"
 {
                                  printf("Asignacion: %s\n",yytext);
                                  return ASIGNACION;
@@ -808,12 +808,12 @@ YY_RULE_SETUP
 case 10:
 /* rule 10 can match eol */
 YY_RULE_SETUP
-#line 49 "lex_micro.l"
+#line 50 "lex_micro.l"
 /* ignorar espacios y enter, no nos importa analizarlos. */;
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 51 "lex_micro.l"
+#line 52 "lex_micro.l"
 ECHO;
 	YY_BREAK
 #line 820 "lex.yy.c"
@@ -1813,4 +1813,4 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 51 "lex_micro.l"
+#line 52 "lex_micro.l"

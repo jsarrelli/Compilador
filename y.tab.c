@@ -66,25 +66,25 @@
    /* Put the tokens into the symbol table, so that GDB and other debuggers
       know about them.  */
    enum yytokentype {
-     IDENTIFICADOR = 258,
-     INICIO = 259,
-     FIN = 260,
-     LEER = 261,
-     ESCRIBIR = 262,
-     CONSTANTE = 263,
-     OPERADOR_ADITIVO = 264,
-     ASIGNACION = 265
+     CONSTANTE = 258,
+     OPERADOR_ADITIVO = 259,
+     ASIGNACION = 260,
+     INICIO = 261,
+     FIN = 262,
+     LEER = 263,
+     ESCRIBIR = 264,
+     IDENTIFICADOR = 265
    };
 #endif
 /* Tokens.  */
-#define IDENTIFICADOR 258
-#define INICIO 259
-#define FIN 260
-#define LEER 261
-#define ESCRIBIR 262
-#define CONSTANTE 263
-#define OPERADOR_ADITIVO 264
-#define ASIGNACION 265
+#define CONSTANTE 258
+#define OPERADOR_ADITIVO 259
+#define ASIGNACION 260
+#define INICIO 261
+#define FIN 262
+#define LEER 263
+#define ESCRIBIR 264
+#define IDENTIFICADOR 265
 
 
 
@@ -133,17 +133,9 @@ int yywrap();
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 typedef union YYSTYPE
 #line 22 "yacc_micro.y"
-{char* identificador;
-#line 23 "yacc_micro.y"
-char* asignacion;
-#line 24 "yacc_micro.y"
-char* constante;
-#line 25 "yacc_micro.y"
-char* operador_aditivo;
-#line 26 "yacc_micro.y"
-char* expresion;}
+{char* identificador;}
 /* Line 193 of yacc.c.  */
-#line 147 "y.tab.c"
+#line 139 "y.tab.c"
 	YYSTYPE;
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
 # define YYSTYPE_IS_DECLARED 1
@@ -156,7 +148,7 @@ char* expresion;}
 
 
 /* Line 216 of yacc.c.  */
-#line 160 "y.tab.c"
+#line 152 "y.tab.c"
 
 #ifdef short
 # undef short
@@ -371,7 +363,7 @@ union yyalloc
 /* YYFINAL -- State number of the termination state.  */
 #define YYFINAL  8
 /* YYLAST -- Last index in YYTABLE.  */
-#define YYLAST   32
+#define YYLAST   30
 
 /* YYNTOKENS -- Number of terminals.  */
 #define YYNTOKENS  15
@@ -433,19 +425,19 @@ static const yytype_uint8 yyprhs[] =
 /* YYRHS -- A `-1'-separated list of the rules' RHS.  */
 static const yytype_int8 yyrhs[] =
 {
-      16,     0,    -1,     4,    17,     5,    -1,    18,    17,    -1,
-      18,    -1,     3,    10,    21,    11,    -1,     6,    12,    19,
-      13,    11,    -1,     7,    12,    20,    13,    11,    -1,     3,
-      -1,     3,    14,    19,    -1,    21,    -1,    21,    14,    20,
-      -1,    22,    -1,    22,     9,    21,    -1,     3,    -1,     8,
+      16,     0,    -1,     6,    17,     7,    -1,    18,    17,    -1,
+      18,    -1,    10,     5,    21,    11,    -1,     8,    12,    19,
+      13,    11,    -1,     9,    12,    20,    13,    11,    -1,    10,
+      -1,    10,    14,    19,    -1,    21,    -1,    21,    14,    20,
+      -1,    22,    -1,    22,     4,    21,    -1,    10,    -1,     3,
       -1,    12,    21,    13,    -1
 };
 
 /* YYRLINE[YYN] -- source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    38,    38,    42,    43,    45,    54,    55,    57,    58,
-      63,    64,    66,    67,    69,    76,    77
+       0,    30,    30,    34,    35,    37,    47,    48,    53,    54,
+      59,    60,    62,    63,    65,    72,    73
 };
 #endif
 
@@ -454,10 +446,11 @@ static const yytype_uint8 yyrline[] =
    First, the terminals, then, starting at YYNTOKENS, nonterminals.  */
 static const char *const yytname[] =
 {
-  "$end", "error", "$undefined", "IDENTIFICADOR", "INICIO", "FIN", "LEER",
-  "ESCRIBIR", "CONSTANTE", "OPERADOR_ADITIVO", "ASIGNACION", "';'", "'('",
-  "')'", "','", "$accept", "programa", "listaSentencias", "sentencia",
-  "listaIdentificadores", "listaExpresiones", "expresion", "primaria", 0
+  "$end", "error", "$undefined", "CONSTANTE", "OPERADOR_ADITIVO",
+  "ASIGNACION", "INICIO", "FIN", "LEER", "ESCRIBIR", "IDENTIFICADOR",
+  "';'", "'('", "')'", "','", "$accept", "programa", "listaSentencias",
+  "sentencia", "listaIdentificadores", "listaExpresiones", "expresion",
+  "primaria", 0
 };
 #endif
 
@@ -491,15 +484,15 @@ static const yytype_uint8 yyr2[] =
 static const yytype_uint8 yydefact[] =
 {
        0,     0,     0,     0,     0,     0,     0,     4,     1,     0,
-       0,     0,     2,     3,    14,    15,     0,     0,    12,     8,
-       0,     0,    10,     0,     5,     0,     0,     0,     0,     0,
-      16,    13,     9,     6,     7,    11
+       0,     0,     2,     3,     8,     0,    15,    14,     0,     0,
+      10,    12,     0,     0,     0,     0,     0,     0,     0,     5,
+       9,     6,    16,     7,    11,    13
 };
 
 /* YYDEFGOTO[NTERM-NUM].  */
 static const yytype_int8 yydefgoto[] =
 {
-      -1,     2,     6,     7,    20,    21,    22,    18
+      -1,     2,     6,     7,    15,    19,    20,    21
 };
 
 /* YYPACT[STATE-NUM] -- Index in YYTABLE of the portion describing
@@ -507,16 +500,16 @@ static const yytype_int8 yydefgoto[] =
 #define YYPACT_NINF -12
 static const yytype_int8 yypact[] =
 {
-      -1,     2,     4,    -8,     0,     1,     6,     2,   -12,    -2,
-      11,    -2,   -12,   -12,   -12,   -12,    -2,     7,     8,     5,
-       9,    10,    12,    14,   -12,    -2,    11,    13,    17,    -2,
+      -1,    -6,     6,    -3,     0,     8,     4,    -6,   -12,     5,
+      -2,    -2,   -12,   -12,     2,     1,   -12,   -12,    -2,     7,
+       9,    14,    10,     5,    11,    12,    13,    -2,    -2,   -12,
      -12,   -12,   -12,   -12,   -12,   -12
 };
 
 /* YYPGOTO[NTERM-NUM].  */
 static const yytype_int8 yypgoto[] =
 {
-     -12,   -12,    18,   -12,   -11,     3,    -9,   -12
+     -12,   -12,    19,   -12,    -4,     3,   -11,   -12
 };
 
 /* YYTABLE[YYPACT[STATE-NUM]].  What to do in state STATE-NUM.  If
@@ -526,28 +519,28 @@ static const yytype_int8 yypgoto[] =
 #define YYTABLE_NINF -1
 static const yytype_uint8 yytable[] =
 {
-      17,    14,     9,     1,     8,     3,    15,    23,     4,     5,
-      16,    12,    10,    11,    19,    32,    31,    25,    24,    26,
-       0,     0,    27,    28,    33,    13,    29,    30,    34,     0,
-       0,     0,    35
+      22,    16,     3,     4,     5,     1,     8,    25,    17,     9,
+      18,    12,    10,    11,    24,    14,    23,    35,    28,    30,
+      26,    29,    31,    27,    33,    32,    13,     0,     0,     0,
+      34
 };
 
 static const yytype_int8 yycheck[] =
 {
-       9,     3,    10,     4,     0,     3,     8,    16,     6,     7,
-      12,     5,    12,    12,     3,    26,    25,     9,    11,    14,
-      -1,    -1,    13,    13,    11,     7,    14,    13,    11,    -1,
-      -1,    -1,    29
+      11,     3,     8,     9,    10,     6,     0,    18,    10,    12,
+      12,     7,    12,     5,    13,    10,    14,    28,     4,    23,
+      13,    11,    11,    14,    11,    13,     7,    -1,    -1,    -1,
+      27
 };
 
 /* YYSTOS[STATE-NUM] -- The (internal number of the) accessing
    symbol of state STATE-NUM.  */
 static const yytype_uint8 yystos[] =
 {
-       0,     4,    16,     3,     6,     7,    17,    18,     0,    10,
-      12,    12,     5,    17,     3,     8,    12,    21,    22,     3,
-      19,    20,    21,    21,    11,     9,    14,    13,    13,    14,
-      13,    21,    19,    11,    11,    20
+       0,     6,    16,     8,     9,    10,    17,    18,     0,    12,
+      12,     5,     7,    17,    10,    19,     3,    10,    12,    20,
+      21,    22,    21,    14,    13,    21,    13,    14,     4,    11,
+      19,    11,    13,    11,    20,    21
 };
 
 #define yyerrok		(yyerrstatus = 0)
@@ -1362,26 +1355,27 @@ yyreduce:
   switch (yyn)
     {
         case 2:
-#line 38 "yacc_micro.y"
+#line 30 "yacc_micro.y"
     {
                                                     printf("Compilado correctamente!\n");
                                                 }
     break;
 
   case 5:
-#line 45 "yacc_micro.y"
+#line 37 "yacc_micro.y"
     {
                                                                 //Rutina semántica: Comprobar largo de variable.
-                                                                if(identificadorValido((yyvsp[(1) - (4)].identificador)) == 0)
-                                                               
-                                                                    YYABORT;
-                                                                    
-                                                                else  printf("Sentencia: %s %s \n",(yyvsp[(1) - (4)].identificador),(yyvsp[(2) - (4)].asignacion));
+                                                                if(identificadorValido((yyvsp[(1) - (4)].identificador)) == 0)YYABORT;
+                                                                   /*
+                                                                    else  {
+                                                                        printf("Sentencia: %s %s %s \n",$1,$2,$3);
+                                                                    }
+                                                                    */
                                                             }
     break;
 
   case 9:
-#line 58 "yacc_micro.y"
+#line 54 "yacc_micro.y"
     {
                                                                         if(identificadorValido((yyvsp[(1) - (3)].identificador)) == 0)
                                                                             YYABORT;
@@ -1389,7 +1383,7 @@ yyreduce:
     break;
 
   case 14:
-#line 69 "yacc_micro.y"
+#line 65 "yacc_micro.y"
     {
                                                 if(identificadorValido((yyvsp[(1) - (1)].identificador)) == 0)
                                                     YYABORT;
@@ -1399,13 +1393,13 @@ yyreduce:
     break;
 
   case 16:
-#line 77 "yacc_micro.y"
+#line 73 "yacc_micro.y"
     { ; }
     break;
 
 
 /* Line 1267 of yacc.c.  */
-#line 1409 "y.tab.c"
+#line 1403 "y.tab.c"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
@@ -1619,7 +1613,7 @@ yyreturn:
 }
 
 
-#line 79 "yacc_micro.y"
+#line 75 "yacc_micro.y"
 
 
 int identificadorValido(char* id)
@@ -1654,11 +1648,9 @@ int yywrap()
 } 
 
 int main(int argc, char* argv[]) {
-
-    //Permitimos leer archivos completos.
     if (argc == 2)
     {
-        printf("Para analizar un archivo, ejecute: ./Micro <nombre del archivo> \n\n");
+        //printf("Para analizar un archivo, ejecute: ./Micro <nombre del archivo> \n\n");
     	FILE *source = fopen(argv[1], "r");
     	
     	if (!source) {

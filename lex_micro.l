@@ -27,6 +27,7 @@ inicio                          return INICIO;
 fin                             return FIN;
 leer                            return LEER;
 escribir                        return ESCRIBIR;
+
 {LETRA}({LETRA}|{DIGITO})*      {
                                     //Almacenamos el nombre del identificador reconocido para luego poder acceder al mismo desde YACC.
                                     //Si no se utiliza strdup() el puntero de yytext será copiado en yylval.identificador.

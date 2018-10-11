@@ -20,17 +20,9 @@ int yywrap();
 */
 %}
 %union {char* identificador;}
-%union {char* asignacion;}
-%union {char* constante;}
-%union {char* operador_aditivo;}
-%union {char* expresion;}
-//%token CONSTANTE OPERADOR_ADITIVO ASIGNACION INICIO FIN LEER ESCRIBIR
+%token CONSTANTE OPERADOR_ADITIVO ASIGNACION INICIO FIN LEER ESCRIBIR
 %token <identificador> IDENTIFICADOR
-%token INICIO FIN LEER ESCRIBIR
-
-%token <constante> CONSTANTE
-%token <operador_aditivo> OPERADOR_ADITIVO
-%token <asignacion> ASIGNACION
+//%token INICIO FIN LEER ESCRIBIR
 
 
 %%
@@ -44,15 +36,19 @@ listaSentencias : sentencia listaSentencias
 
 sentencia       : IDENTIFICADOR ASIGNACION expresion ';'    {
                                                                 //Rutina semántica: Comprobar largo de variable.
-                                                                if(identificadorValido($1) == 0)
-                                                               
-                                                                    YYABORT;
-                                                                    
-                                                                else  printf("Sentencia: %s %s \n",$1,$2);
-                                                            };
+                                                                if(identificadorValido($1) == 0)YYABORT;
+                                                                   /*
+                                                                    else  {
+                                                                        printf("Sentencia: %s %s %s \n",$1,$2,$3);
+                                                                    }
+                                                                    */
+                                                            }
 
-sentencia       : LEER '(' listaIdentificadores ')' ';'
+                | LEER '(' listaIdentificadores ')' ';'
                 | ESCRIBIR '(' listaExpresiones ')' ';'     ;
+
+
+
 
 listaIdentificadores    : IDENTIFICADOR 
                         | IDENTIFICADOR ',' listaIdentificadores    {
@@ -73,7 +69,7 @@ primaria                : IDENTIFICADOR     {
                                                      else  printf("Primaria: %s\n",$1);
                                             };
 
-primaria                :   CONSTANTE
+                        | CONSTANTE
                         | '(' expresion ')' { ; }
             
 %%
@@ -110,11 +106,9 @@ int yywrap()
 } 
 
 int main(int argc, char* argv[]) {
-
-    //Permitimos leer archivos completos.
     if (argc == 2)
     {
-        printf("Para analizar un archivo, ejecute: ./Micro <nombre del archivo> \n\n");
+        //printf("Para analizar un archivo, ejecute: ./Micro <nombre del archivo> \n\n");
     	FILE *source = fopen(argv[1], "r");
     	
     	if (!source) {

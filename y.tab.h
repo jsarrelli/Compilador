@@ -39,25 +39,25 @@
    /* Put the tokens into the symbol table, so that GDB and other debuggers
       know about them.  */
    enum yytokentype {
-     IDENTIFICADOR = 258,
-     INICIO = 259,
-     FIN = 260,
-     LEER = 261,
-     ESCRIBIR = 262,
-     CONSTANTE = 263,
-     OPERADOR_ADITIVO = 264,
-     ASIGNACION = 265
+     CONSTANTE = 258,
+     OPERADOR_ADITIVO = 259,
+     ASIGNACION = 260,
+     INICIO = 261,
+     FIN = 262,
+     LEER = 263,
+     ESCRIBIR = 264,
+     IDENTIFICADOR = 265
    };
 #endif
 /* Tokens.  */
-#define IDENTIFICADOR 258
-#define INICIO 259
-#define FIN 260
-#define LEER 261
-#define ESCRIBIR 262
-#define CONSTANTE 263
-#define OPERADOR_ADITIVO 264
-#define ASIGNACION 265
+#define CONSTANTE 258
+#define OPERADOR_ADITIVO 259
+#define ASIGNACION 260
+#define INICIO 261
+#define FIN 262
+#define LEER 263
+#define ESCRIBIR 264
+#define IDENTIFICADOR 265
 
 
 
@@ -65,17 +65,9 @@
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 typedef union YYSTYPE
 #line 22 "yacc_micro.y"
-{char* identificador;
-#line 23 "yacc_micro.y"
-char* asignacion;
-#line 24 "yacc_micro.y"
-char* constante;
-#line 25 "yacc_micro.y"
-char* operador_aditivo;
-#line 26 "yacc_micro.y"
-char* expresion;}
+{char* identificador;}
 /* Line 1529 of yacc.c.  */
-#line 79 "y.tab.h"
+#line 71 "y.tab.h"
 	YYSTYPE;
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
 # define YYSTYPE_IS_DECLARED 1

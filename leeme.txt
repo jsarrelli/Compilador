@@ -10,11 +10,6 @@ Descripción de archivos incluidos:
 * Los archivos y.tab.c, y.tab.h y lex.yy.c son los archivos que genera LEX y YACC al compilar.
 
 
-Realizado para la materia Sintaxis y Semántica de los Lenguajes - Universidad Tecnológica Nacional Facultad Regional Buenos Aires
+Integrantes: Gandolfo Lazaro / Romano Leandro / Sarrelli Julian
 
-Autores:
-    - Liloia Scott, Nicolás.
-    - Masotta, Augusto.
-    - Mendez Corridoni, Matías.
-    
-Año 2017.
+Profesor: Oscar Bruno
