@@ -39,24 +39,24 @@
    /* Put the tokens into the symbol table, so that GDB and other debuggers
       know about them.  */
    enum yytokentype {
-     CONSTANTE = 258,
-     OPERADOR_ADITIVO = 259,
-     ASIGNACION = 260,
-     INICIO = 261,
-     FIN = 262,
-     LEER = 263,
-     ESCRIBIR = 264,
+     OPERADOR_ADITIVO = 258,
+     INICIO = 259,
+     FIN = 260,
+     LEER = 261,
+     ESCRIBIR = 262,
+     ASIGNACION = 263,
+     CONSTANTE = 264,
      IDENTIFICADOR = 265
    };
 #endif
 /* Tokens.  */
-#define CONSTANTE 258
-#define OPERADOR_ADITIVO 259
-#define ASIGNACION 260
-#define INICIO 261
-#define FIN 262
-#define LEER 263
-#define ESCRIBIR 264
+#define OPERADOR_ADITIVO 258
+#define INICIO 259
+#define FIN 260
+#define LEER 261
+#define ESCRIBIR 262
+#define ASIGNACION 263
+#define CONSTANTE 264
 #define IDENTIFICADOR 265
 
 
@@ -64,7 +64,7 @@
 
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 typedef union YYSTYPE
-#line 22 "yacc_micro.y"
+#line 25 "yacc_micro.y"
 {char* identificador;}
 /* Line 1529 of yacc.c.  */
 #line 71 "y.tab.h"

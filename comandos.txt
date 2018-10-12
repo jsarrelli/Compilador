@@ -7,5 +7,5 @@ Comandos a ejecutar para compilar el compilador de MICRO:
 Con los archivos ejemplo incluidos:
 1.    lex lex_micro.l
 2.    yacc -d yacc_micro.y
-3.    cc lex.yy.c y.tab.c -o compiladorMICRO 
-4.    ./Micro src.mk
+3.    cc lex.yy.c y.tab.c -o Micro
+4.    ./Micro bruno.m

@@ -1,5 +1,6 @@
 %{
 #include <stdio.h>
+#include <string.h>
 #define VARMAXLENGTH 32
 
 /*
@@ -19,10 +20,12 @@ int yywrap();
     Lo siguiente son las declaraciones de TOKEN para YACC. Las mismas son convertidas a INT para poder ser retornadas en LEX.
 */
 %}
+
+
 %union {char* identificador;}
-%token CONSTANTE OPERADOR_ADITIVO ASIGNACION INICIO FIN LEER ESCRIBIR
+%token <operador> OPERADOR_ADITIVO INICIO FIN LEER ESCRIBIR ASIGNACION CONSTANTE
 %token <identificador> IDENTIFICADOR
-//%token INICIO FIN LEER ESCRIBIR
+
 
 
 %%
@@ -37,14 +40,11 @@ listaSentencias : sentencia listaSentencias
 sentencia       : IDENTIFICADOR ASIGNACION expresion ';'    {
                                                                 //Rutina semántica: Comprobar largo de variable.
                                                                 if(identificadorValido($1) == 0)YYABORT;
-                                                                   /*
-                                                                    else  {
-                                                                        printf("Sentencia: %s %s %s \n",$1,$2,$3);
-                                                                    }
-                                                                    */
+                                                         
+                                                                    
                                                             }
 
-                | LEER '(' listaIdentificadores ')' ';'
+                | LEER '(' listaIdentificadores ')' ';' { }
                 | ESCRIBIR '(' listaExpresiones ')' ';'     ;
 
 
@@ -60,13 +60,12 @@ listaExpresiones        : expresion
                         | expresion ',' listaExpresiones        ;
 
 expresion               : primaria
-                        | primaria OPERADOR_ADITIVO expresion           ;
+                        | primaria OPERADOR_ADITIVO expresion        ;
 
 primaria                : IDENTIFICADOR     {
                                                 if(identificadorValido($1) == 0)
                                                     YYABORT;
                                                     
-                                                     else  printf("Primaria: %s\n",$1);
                                             };
 
                         | CONSTANTE

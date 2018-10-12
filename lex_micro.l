@@ -36,15 +36,19 @@ escribir                        return ESCRIBIR;
                                     return IDENTIFICADOR; //Retornamos el token IDENTIFICADOR para YACC.
                                 }
 {DIGITO}{DIGITO}*               {
+								 
                                   printf("Constante: %s\n",yytext);
+                                
                                   return CONSTANTE;
                                 }
 {OPERADOR_ADITIVO}              {
                                   printf("Operador aditivo: %s\n",yytext);
+                                  
                                   return OPERADOR_ADITIVO;
                                  }
 {ASIGNACION}                    {
                                  printf("Asignacion: %s\n",yytext);
+                               
                                  return ASIGNACION;
                                 }
 [ \t\n]+                        /* ignorar espacios y enter, no nos importa analizarlos. */;

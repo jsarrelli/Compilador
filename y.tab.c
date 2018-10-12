@@ -66,24 +66,24 @@
    /* Put the tokens into the symbol table, so that GDB and other debuggers
       know about them.  */
    enum yytokentype {
-     CONSTANTE = 258,
-     OPERADOR_ADITIVO = 259,
-     ASIGNACION = 260,
-     INICIO = 261,
-     FIN = 262,
-     LEER = 263,
-     ESCRIBIR = 264,
+     OPERADOR_ADITIVO = 258,
+     INICIO = 259,
+     FIN = 260,
+     LEER = 261,
+     ESCRIBIR = 262,
+     ASIGNACION = 263,
+     CONSTANTE = 264,
      IDENTIFICADOR = 265
    };
 #endif
 /* Tokens.  */
-#define CONSTANTE 258
-#define OPERADOR_ADITIVO 259
-#define ASIGNACION 260
-#define INICIO 261
-#define FIN 262
-#define LEER 263
-#define ESCRIBIR 264
+#define OPERADOR_ADITIVO 258
+#define INICIO 259
+#define FIN 260
+#define LEER 261
+#define ESCRIBIR 262
+#define ASIGNACION 263
+#define CONSTANTE 264
 #define IDENTIFICADOR 265
 
 
@@ -93,6 +93,7 @@
 #line 1 "yacc_micro.y"
 
 #include <stdio.h>
+#include <string.h>
 #define VARMAXLENGTH 32
 
 /*
@@ -105,7 +106,7 @@ void yyerror(const char *str);
 int stringLength(char* str);
 int identificadorValido(char* id);
 int yywrap();
-#line 17 "yacc_micro.y"
+#line 18 "yacc_micro.y"
  
 /*
     Lo siguiente son las declaraciones de TOKEN para YACC. Las mismas son convertidas a INT para poder ser retornadas en LEX.
@@ -132,10 +133,10 @@ int yywrap();
 
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 typedef union YYSTYPE
-#line 22 "yacc_micro.y"
+#line 25 "yacc_micro.y"
 {char* identificador;}
 /* Line 193 of yacc.c.  */
-#line 139 "y.tab.c"
+#line 140 "y.tab.c"
 	YYSTYPE;
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
 # define YYSTYPE_IS_DECLARED 1
@@ -148,7 +149,7 @@ typedef union YYSTYPE
 
 
 /* Line 216 of yacc.c.  */
-#line 152 "y.tab.c"
+#line 153 "y.tab.c"
 
 #ifdef short
 # undef short
@@ -363,7 +364,7 @@ union yyalloc
 /* YYFINAL -- State number of the termination state.  */
 #define YYFINAL  8
 /* YYLAST -- Last index in YYTABLE.  */
-#define YYLAST   30
+#define YYLAST   27
 
 /* YYNTOKENS -- Number of terminals.  */
 #define YYNTOKENS  15
@@ -425,19 +426,19 @@ static const yytype_uint8 yyprhs[] =
 /* YYRHS -- A `-1'-separated list of the rules' RHS.  */
 static const yytype_int8 yyrhs[] =
 {
-      16,     0,    -1,     6,    17,     7,    -1,    18,    17,    -1,
-      18,    -1,    10,     5,    21,    11,    -1,     8,    12,    19,
-      13,    11,    -1,     9,    12,    20,    13,    11,    -1,    10,
+      16,     0,    -1,     4,    17,     5,    -1,    18,    17,    -1,
+      18,    -1,    10,     8,    21,    11,    -1,     6,    12,    19,
+      13,    11,    -1,     7,    12,    20,    13,    11,    -1,    10,
       -1,    10,    14,    19,    -1,    21,    -1,    21,    14,    20,
-      -1,    22,    -1,    22,     4,    21,    -1,    10,    -1,     3,
+      -1,    22,    -1,    22,     3,    21,    -1,    10,    -1,     9,
       -1,    12,    21,    13,    -1
 };
 
 /* YYRLINE[YYN] -- source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    30,    30,    34,    35,    37,    47,    48,    53,    54,
-      59,    60,    62,    63,    65,    72,    73
+       0,    33,    33,    37,    38,    40,    47,    48,    53,    54,
+      59,    60,    62,    63,    65,    71,    72
 };
 #endif
 
@@ -446,9 +447,9 @@ static const yytype_uint8 yyrline[] =
    First, the terminals, then, starting at YYNTOKENS, nonterminals.  */
 static const char *const yytname[] =
 {
-  "$end", "error", "$undefined", "CONSTANTE", "OPERADOR_ADITIVO",
-  "ASIGNACION", "INICIO", "FIN", "LEER", "ESCRIBIR", "IDENTIFICADOR",
-  "';'", "'('", "')'", "','", "$accept", "programa", "listaSentencias",
+  "$end", "error", "$undefined", "OPERADOR_ADITIVO", "INICIO", "FIN",
+  "LEER", "ESCRIBIR", "ASIGNACION", "CONSTANTE", "IDENTIFICADOR", "';'",
+  "'('", "')'", "','", "$accept", "programa", "listaSentencias",
   "sentencia", "listaIdentificadores", "listaExpresiones", "expresion",
   "primaria", 0
 };
@@ -500,16 +501,16 @@ static const yytype_int8 yydefgoto[] =
 #define YYPACT_NINF -12
 static const yytype_int8 yypact[] =
 {
-      -1,    -6,     6,    -3,     0,     8,     4,    -6,   -12,     5,
-      -2,    -2,   -12,   -12,     2,     1,   -12,   -12,    -2,     7,
-       9,    14,    10,     5,    11,    12,    13,    -2,    -2,   -12,
+       4,    -5,     9,    -2,    -1,     5,     7,    -5,   -12,     6,
+      -6,    -6,   -12,   -12,     0,     2,   -12,   -12,    -6,     8,
+      10,    15,    11,     6,    12,    13,    14,    -6,    -6,   -12,
      -12,   -12,   -12,   -12,   -12,   -12
 };
 
 /* YYPGOTO[NTERM-NUM].  */
 static const yytype_int8 yypgoto[] =
 {
-     -12,   -12,    19,   -12,    -4,     3,   -11,   -12
+     -12,   -12,    20,   -12,    -4,    -7,   -11,   -12
 };
 
 /* YYTABLE[YYPACT[STATE-NUM]].  What to do in state STATE-NUM.  If
@@ -519,27 +520,25 @@ static const yytype_int8 yypgoto[] =
 #define YYTABLE_NINF -1
 static const yytype_uint8 yytable[] =
 {
-      22,    16,     3,     4,     5,     1,     8,    25,    17,     9,
-      18,    12,    10,    11,    24,    14,    23,    35,    28,    30,
-      26,    29,    31,    27,    33,    32,    13,     0,     0,     0,
-      34
+      22,     3,     4,    16,    17,     5,    18,    25,     1,     8,
+       9,    10,    12,    11,    23,    24,    14,    35,    28,    30,
+      34,    26,    29,    31,    27,    33,    32,    13
 };
 
-static const yytype_int8 yycheck[] =
+static const yytype_uint8 yycheck[] =
 {
-      11,     3,     8,     9,    10,     6,     0,    18,    10,    12,
-      12,     7,    12,     5,    13,    10,    14,    28,     4,    23,
-      13,    11,    11,    14,    11,    13,     7,    -1,    -1,    -1,
-      27
+      11,     6,     7,     9,    10,    10,    12,    18,     4,     0,
+      12,    12,     5,     8,    14,    13,    10,    28,     3,    23,
+      27,    13,    11,    11,    14,    11,    13,     7
 };
 
 /* YYSTOS[STATE-NUM] -- The (internal number of the) accessing
    symbol of state STATE-NUM.  */
 static const yytype_uint8 yystos[] =
 {
-       0,     6,    16,     8,     9,    10,    17,    18,     0,    12,
-      12,     5,     7,    17,    10,    19,     3,    10,    12,    20,
-      21,    22,    21,    14,    13,    21,    13,    14,     4,    11,
+       0,     4,    16,     6,     7,    10,    17,    18,     0,    12,
+      12,     8,     5,    17,    10,    19,     9,    10,    12,    20,
+      21,    22,    21,    14,    13,    21,    13,    14,     3,    11,
       19,    11,    13,    11,    20,    21
 };
 
@@ -1355,23 +1354,25 @@ yyreduce:
   switch (yyn)
     {
         case 2:
-#line 30 "yacc_micro.y"
+#line 33 "yacc_micro.y"
     {
                                                     printf("Compilado correctamente!\n");
                                                 }
     break;
 
   case 5:
-#line 37 "yacc_micro.y"
+#line 40 "yacc_micro.y"
     {
                                                                 //Rutina semántica: Comprobar largo de variable.
                                                                 if(identificadorValido((yyvsp[(1) - (4)].identificador)) == 0)YYABORT;
-                                                                   /*
-                                                                    else  {
-                                                                        printf("Sentencia: %s %s %s \n",$1,$2,$3);
-                                                                    }
-                                                                    */
+                                                         
+                                                                    
                                                             }
+    break;
+
+  case 6:
+#line 47 "yacc_micro.y"
+    { }
     break;
 
   case 9:
@@ -1388,12 +1389,11 @@ yyreduce:
                                                 if(identificadorValido((yyvsp[(1) - (1)].identificador)) == 0)
                                                     YYABORT;
                                                     
-                                                     else  printf("Primaria: %s\n",(yyvsp[(1) - (1)].identificador));
                                             }
     break;
 
   case 16:
-#line 73 "yacc_micro.y"
+#line 72 "yacc_micro.y"
     { ; }
     break;
 
@@ -1613,7 +1613,7 @@ yyreturn:
 }
 
 
-#line 75 "yacc_micro.y"
+#line 74 "yacc_micro.y"
 
 
 int identificadorValido(char* id)
