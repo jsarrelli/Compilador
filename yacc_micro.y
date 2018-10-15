@@ -32,7 +32,11 @@ int yywrap();
 
 programa        : INICIO listaSentencias FIN    {
                                                     printf("Compilado correctamente!\n");
+                                                }
+                | INICIO FIN                    {
+                                                    printf("Compilado correctamente!\n");
                                                 };
+
 
 listaSentencias : sentencia listaSentencias
                 | sentencia                     ;
